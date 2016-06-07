@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="file:///android_asset/styles/solarized-light.css" />
+    <link rel="stylesheet" type="text/css" href="file:///android_asset/styles/style.css" />
+    <script src="file:///android_asset/jquery.min.js"></script>
+    <script src="file:///android_asset/highlight.pack.js"></script>
+</head>
+
+<body>
+<pre>
+    <code>
+htmlSuite('core-overlay', function() {
+htmlTest('html/core-overlay-basic.html');
+htmlTest('html/core-overlay-positioning.html');
+htmlTest('html/core-overlay-positioning-margin.html');
+htmlTest('html/core-overlay-scroll.html');
+htmlTest('html/core-overlay-quick-close.html');
+});htmlSuite('core-overlay', function() {
+htmlTest('html/core-overlay-basic.html');
+htmlTest('html/core-overlay-positioning.html');
+htmlTest('html/core-overlay-positioning-margin.html');
+htmlTest('html/core-overlay-scroll.html');
+htmlTest('html/core-overlay-quick-close.html');
+});
+    </code>
+</pre>
+</body>
+<script>
+    window.onload=function() {
+        $(document).ready(function() {
+            $('pre code').each(function(i, block) {
+                hljs.highlightBlock(block);
+            });
+        });
+    }
+
+
+</script>
+</html>

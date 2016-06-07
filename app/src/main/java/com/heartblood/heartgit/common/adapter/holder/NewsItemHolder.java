@@ -14,17 +14,21 @@ import com.heartblood.heartgit.news.NewsDetailActivity;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import butterknife.BindView;
+
 /**
  * Created by heartblood on 16/5/31.
  */
 public class NewsItemHolder extends RecyclerView.ViewHolder{
     public TextView newsTitle;
+    public TextView newsAuthor;
     private int Position;
     private NewsActivity mContext;
     private JSONObject mdataObject;
     public NewsItemHolder(View itemView) {
         super(itemView);
         newsTitle = (TextView) itemView.findViewById(R.id.news_card_label_title);
+        newsAuthor = (TextView) itemView.findViewById(R.id.news_card_label_author);
         itemView.findViewById(R.id.news_card_label_container).setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
@@ -43,6 +47,7 @@ public class NewsItemHolder extends RecyclerView.ViewHolder{
         this.mdataObject = mdataObject;
         try {
             newsTitle.setText(mdataObject.getString("title"));
+            newsAuthor.setText(mdataObject.getString("author"));
         } catch (JSONException e) {
             e.printStackTrace();
         }
