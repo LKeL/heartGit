@@ -40,8 +40,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingLeft="@dimen/activity_horizontal_margin"
-            android:paddingRight="@dimen/activity_horizontal_margin"
-            android:paddingTop="@dimen/activity_vertical_margin">
+            android:paddingRight="@dimen/activity_horizontal_margin">
         </android.support.v7.widget.RecyclerView>
     </in.srain.cube.views.ptr.PtrFrameLayout>
     <com.wang.avi.AVLoadingIndicatorView

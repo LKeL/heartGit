@@ -66,7 +66,7 @@ blockquote:before {
 blockquote p {
     display:inline;
 }
-ul {
+ul,ol{
     background-color: #F7F7F7;
 }
 li {
@@ -83,6 +83,8 @@ img {
     margin: auto;
     max-width:100%;
     height:auto;
+    padding: 3px;
+    border: 1px solid #ddd;
 }
 
 a {

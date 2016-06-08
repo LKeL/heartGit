@@ -13,6 +13,7 @@ import com.facebook.drawee.backends.pipeline.Fresco;
 import com.heartblood.heartgit.R;
 import com.heartblood.heartgit.common.AppActivity;
 import com.heartblood.heartgit.common.EndlessRecyclerOnScrollListener;
+import com.heartblood.heartgit.common.Global;
 import com.heartblood.heartgit.common.adapter.NewsListAdapter;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
@@ -70,12 +71,10 @@ public class NewsActivity extends AppActivity {
             // 下拉加载
             @Override
             public void onLoadMore(int currentPage) {
-                Log.e("tset", String.valueOf(mAVLoadingMoreView.getHeight()));
                 mAVLoadingMoreView.setY(mAVLoadingMoreView.getY()+mAVLoadingMoreView.getHeight());
                 ViewTranslationY(mAVLoadingMoreView, 80-mAVLoadingMoreView.getHeight());
-
                 AsyncHttpClient client = new AsyncHttpClient();
-                client.get("http://119.29.58.43/api/getSfBlog/getPage="+currentPage, new JsonHttpResponseHandler() {
+                client.get(Global.GETSFBLOG+currentPage, new JsonHttpResponseHandler() {
                     @Override
                     public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
                         super.onSuccess(statusCode, headers, response);
@@ -97,7 +96,6 @@ public class NewsActivity extends AppActivity {
                     public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
                         super.onFailure(statusCode, headers, throwable, errorResponse);
                         ViewTranslationY(mAVLoadingMoreView, mAVLoadingMoreView.getHeight()+80);
-                        Log.e("test","没了");
                         Snackbar.make(mRecyclerView, "没有了哟", Snackbar.LENGTH_LONG)
                                 .setAction("Action", null).show();
                     }
@@ -105,7 +103,7 @@ public class NewsActivity extends AppActivity {
                 });
             }
         });
-        getNews("http://119.29.58.43/api/getSfBlog/getPage=0");
+        getNews(Global.GETSFBLOG+"0");
         mPtrFrameLayout.setPtrHandler(new PtrHandler() {
             @Override
             public boolean checkCanDoRefresh(PtrFrameLayout frame, View content, View header) {
@@ -155,7 +153,7 @@ public class NewsActivity extends AppActivity {
      */
     private void newsUpdate() {
         mEndlessRecyclerOnScrollListener.init();
-        getNews("http://119.29.58.43/api/getSfBlog/getPage=0");
+        getNews(Global.GETSFBLOG+"0");
     }
 
     /**

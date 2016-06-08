@@ -1,10 +1,12 @@
 package com.heartblood.heartgit.common.adapter.holder;
 
 import android.content.Context;
+import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
 
+import com.facebook.drawee.view.SimpleDraweeView;
 import com.heartblood.heartgit.MainActivity;
 import com.heartblood.heartgit.R;
 import com.heartblood.heartgit.common.Global;
@@ -22,6 +24,7 @@ import butterknife.BindView;
 public class NewsItemHolder extends RecyclerView.ViewHolder{
     public TextView newsTitle;
     public TextView newsAuthor;
+    public SimpleDraweeView draweeView;
     private int Position;
     private NewsActivity mContext;
     private JSONObject mdataObject;
@@ -29,6 +32,7 @@ public class NewsItemHolder extends RecyclerView.ViewHolder{
         super(itemView);
         newsTitle = (TextView) itemView.findViewById(R.id.news_card_label_title);
         newsAuthor = (TextView) itemView.findViewById(R.id.news_card_label_author);
+        draweeView = (SimpleDraweeView) itemView.findViewById(R.id.news_card_portrait);
         itemView.findViewById(R.id.news_card_label_container).setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
@@ -48,6 +52,9 @@ public class NewsItemHolder extends RecyclerView.ViewHolder{
         try {
             newsTitle.setText(mdataObject.getString("title"));
             newsAuthor.setText(mdataObject.getString("author"));
+
+            Uri uri = Uri.parse(mdataObject.getString("authorhref"));
+            draweeView.setImageURI(uri);
         } catch (JSONException e) {
             e.printStackTrace();
         }

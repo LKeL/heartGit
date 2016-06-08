@@ -33,8 +33,8 @@
             android:layout_marginRight="@dimen/flexible_space_logo_margin_right"
             app:roundAsCircle="true"
             app:roundedCornerRadius="180dp"
-            app:placeholderImage="@mipmap/news_card_portrait"
-            app:backgroundImage="@color/mountainBackground"
+            app:placeholderImage="@mipmap/news_card_user_portrait"
+            app:backgroundImage="@color/white"
             app:retryImageScaleType="centerCrop"
             app:roundingBorderWidth="2dp"
             app:roundingBorderColor="@color/white"/>

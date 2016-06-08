@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.Toolbar;
@@ -36,7 +37,13 @@ public class NewsDetailActivity extends FlexibleSpaceToolbarWebViewActivity impl
         Fresco.initialize(this);
         super.onCreate(savedInstanceState);
         mdataObject = Global.getNewsData();
-
+        Uri uri = null;
+        try {
+            uri = Uri.parse(mdataObject.getString("authorhref"));
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        mFresco.setImageURI(uri);
     }
 
     @Override
@@ -50,6 +57,7 @@ public class NewsDetailActivity extends FlexibleSpaceToolbarWebViewActivity impl
         return mToolbar;
     }
 
+    @SuppressLint("SetJavaScriptEnabled")
     @Override
     protected ObservableWebView createScrollable() {
 

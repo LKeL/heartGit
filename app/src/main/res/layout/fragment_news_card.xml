@@ -20,7 +20,7 @@
             android:layout_width="200px"
             android:layout_height="200px"
             android:layout_gravity="center_vertical"
-            app:placeholderImage="@mipmap/news_card_portrait"
+            app:placeholderImage="@mipmap/news_card_user_portrait"
             app:roundedCornerRadius="15dp"
             android:layout_margin="12dp"/>
         <LinearLayout
