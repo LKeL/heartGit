@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.heartblood.heartgit.MainActivity"
-    tools:showIn="@layout/app_bar_main">
+    tools:showIn="@layout/app_bar_main"
+    android:orientation="vertical">
     <in.srain.cube.views.ptr.PtrFrameLayout
         android:id="@+id/news_card_ptr_frame"
         xmlns:cube_ptr="http://schemas.android.com/apk/res-auto"
@@ -38,10 +39,17 @@
             android:id="@+id/news_list"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingBottom="@dimen/activity_vertical_margin"
             android:paddingLeft="@dimen/activity_horizontal_margin"
             android:paddingRight="@dimen/activity_horizontal_margin"
             android:paddingTop="@dimen/activity_vertical_margin">
         </android.support.v7.widget.RecyclerView>
     </in.srain.cube.views.ptr.PtrFrameLayout>
-</LinearLayout>
+    <com.wang.avi.AVLoadingIndicatorView
+        android:id="@+id/news_card_loadmore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        app:indicator="BallPulseSync"
+        android:layout_gravity="center_horizontal|bottom"
+        app:indicator_color="@color/refreshLodingColor" />
+</FrameLayout>

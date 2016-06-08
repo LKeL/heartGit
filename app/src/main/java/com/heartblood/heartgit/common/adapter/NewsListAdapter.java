@@ -31,8 +31,6 @@ public class NewsListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     }
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-
-
         return new NewsItemHolder(mLayoutInflater.inflate(R.layout.fragment_news_card, parent, false));
     }
     /**
@@ -61,4 +59,6 @@ public class NewsListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         // TODO: 16/5/9 return holder data item count
         return mDatalist.length();
     }
+
+
 }
