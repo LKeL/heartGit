@@ -1,5 +1,6 @@
 package com.heartblood.heartgit.news;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.design.widget.Snackbar;
@@ -146,7 +147,19 @@ public class NewsActivity extends AppActivity {
     private void newsInit() {
         mNewsListAdapter = new NewsListAdapter(this, mJsonData);
         mRecyclerView.setAdapter(mNewsListAdapter);
+        mNewsListAdapter.setOnItemClickListener(new NewsListAdapter.OnRecyclerViewItemClickListener() {
+            @Override
+            public void onItemClick(View view, JSONObject data) {
+                NewsItemOnClickFunction(view, data);
+            }
+        });
     }
+
+    private void NewsItemOnClickFunction(View view, JSONObject data) {
+        Global.setNewsData((JSONObject) view.getTag());
+        NewsDetailActivity.startActivity(this);
+    }
+
 
     /**
      * 新闻更新
