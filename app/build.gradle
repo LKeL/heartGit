@@ -34,6 +34,7 @@ dependencies {
     compile 'com.wang.avi:library:1.0.5'
     compile 'com.nineoldandroids:library:2.4.0'
     compile 'com.github.ksoichiro:android-observablescrollview:1.5.1'
+    compile 'com.facebook.react:react-native:0.20.1'
     compile 'com.jakewharton:butterknife:8.0.1'
     apt 'com.jakewharton:butterknife-compiler:8.0.1'
 }
